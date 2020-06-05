@@ -3,6 +3,7 @@ import requests
 
 
 def main():
+    print('f')
 
 
 if __name__ == "__main__":
