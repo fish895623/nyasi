@@ -10,13 +10,11 @@ ARG VARIANT="3"
 FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
 
 RUN sed -i 's/deb.debian.org/mirror.kakao.com/g' /etc/apt/sources.list
-ENV DEBIAN_FRONTEND=noninteractive
+# ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
-   && apt-get -y install --no-install-recommends wget \
-   && apt-get autoremove -y \
-   && apt-get clean -y \
+   && apt-get -y install --no-install-recommends wget
    # && rm -rf /var/lib/apt/lists/*
-   ENV DEBIAN_FRONTEND=dialog
+   # ENV DEBIAN_FRONTEND=dialog
 
 COPY .devcontainer/ChromeDriver.sh /tmp/ChromeDriver.sh
 RUN bash /tmp/ChromeDriver.sh
