@@ -6,7 +6,7 @@ node {
         sh 'docker build . -f ${WORKSPACE}/.devcontainer/Dockerfile -t db:latest'
     }
     stage('Push') {
-        sh 'docker push fish895623/DB:latest'
-        sh 'docker push fish895623/DB:${BUILD_ID}'
+        sh 'docker push fish895623/db:latest'
+        sh 'docker push fish895623/db:${BUILD_ID}'
     }
 }
