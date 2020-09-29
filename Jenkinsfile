@@ -12,12 +12,13 @@
 pipeline{
     agent any
     environment {
-        DOCKER_NAME = credentials('docker')
+        DOCKER = credentials('docker')
     }
     stages{
         stage("Git clone"){
             steps{
-                git 'https://github.com/fish895623/nyasi.git'
+                // git 'https://github.com/fish895623/nyasi.git'
+                echo $DOCKER_USR $DOCKER_PSW
             }
             post{
                 always{
