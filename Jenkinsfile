@@ -18,7 +18,7 @@ pipeline{
         stage("Git clone"){
             steps{
                 // git 'https://github.com/fish895623/nyasi.git'
-                echo $DOCKER_USR $DOCKER_PSW
+                sh "echo $DOCKER_USR $DOCKER_PSW"
             }
             post{
                 always{
