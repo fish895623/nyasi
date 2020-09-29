@@ -5,6 +5,7 @@ node {
     stage('Build') {
         sh '''
             echo "hello World"
+            echo "TEST"
         '''
     }
 }
