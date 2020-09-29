@@ -4,17 +4,7 @@ node {
     }
     stage('Build') {
         sh '''
-            docker build . -f ${WORKSPACE}/.devcontainer/Dockerfile -t fish895623/db:latest
-            docker build . -f ${WORKSPACE}/.devcontainer/Dockerfile -t fish895623/db:${BUILD_ID}
+            echo "hello World"
         '''
-    }
-    stage('Push') {
-        withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'fish895623docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-            sh '''
-                docker login -u $USERNAME -p $PASSWORD
-                docker push fish895623/db:latest
-                docker push fish895623/db:${BUILD_ID}
-                '''
-        }
     }
 }
