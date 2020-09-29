@@ -18,7 +18,7 @@ pipeline{
         stage("Git clone"){
             steps{
                 // git 'https://github.com/fish895623/nyasi.git'
-                echo $DOCKER_USR $DOCKER_PSW
+                sh "echo $DOCKER_USR $DOCKER_PSW"
             }
             post{
                 always{
@@ -29,6 +29,24 @@ pipeline{
                 }
                 failure{
                     echo "========A execution failed========"
+                }
+            }
+        }
+        stage("Docker Login"){
+            steps{
+                sh '''
+                    docker login -u $DOCKER_USR -p $DOCKER_PSW
+                '''
+            }
+            post{
+                always{
+                    echo "====++++always++++===="
+                }
+                success{
+                    echo "====++++only when successful++++===="
+                }
+                failure{
+                    echo "====++++only when failed++++===="
                 }
             }
         }
