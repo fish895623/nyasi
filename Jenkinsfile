@@ -10,7 +10,9 @@
 //     }
 // }
 pipeline{
-    agent any
+    agent {
+        docker { image 'debian:latest' }
+    }
     environment {
         DOCKER = credentials('docker')
     }
