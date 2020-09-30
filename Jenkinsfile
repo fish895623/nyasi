@@ -35,7 +35,7 @@ pipeline{
         stage("Docker Login"){
             steps{
                 sh '''
-                    docker login -u $DOCKER_USR -p $DOCKER_PSW
+                    docker run hello-world
                 '''
             }
             post{
