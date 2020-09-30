@@ -28,17 +28,6 @@ pipeline{
                     docker.build aa/abcd
                 }
             }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
         }
         stage("Docker Login"){
             steps{
@@ -46,28 +35,6 @@ pipeline{
                     docker run hello-world
                 '''
             }
-            post{
-                always{
-                    echo "====++++always++++===="
-                }
-                success{
-                    echo "====++++only when successful++++===="
-                }
-                failure{
-                    echo "====++++only when failed++++===="
-                }
-            }
-        }
-    }
-    post{
-        always{
-            echo "========always========"
-        }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
         }
     }
 }
