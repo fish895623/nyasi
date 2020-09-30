@@ -10,17 +10,23 @@
 //     }
 // }
 pipeline{
-    agent {
-        docker { image 'debian:latest' }
-    }
+    // agent {
+    //     docker { image 'debian:latest' }
+    // }
+    agent any
     environment {
-        DOCKER = credentials('docker')
+        DOCKER = credentials('github.fish895623')
     }
     stages{
         stage("Git clone"){
             steps{
                 // git 'https://github.com/fish895623/nyasi.git'
-                sh "echo $DOCKER_USR $DOCKER_PSW"
+                sh '''
+                    echo $DOCKER_USR $DOCKER_PSW
+                '''
+                script {
+                    docker.build aa/abcd
+                }
             }
             post{
                 always{
