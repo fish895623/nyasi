@@ -1,5 +1,0 @@
-requests
-selenium
-pandas
-bs4
-numpy
