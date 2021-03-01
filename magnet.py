@@ -13,6 +13,10 @@ my_titles = soup.select("body > div > div.table-responsive > table > tbody > tr 
 my_titles
 
 # %%
+r = re.compile(r"^[^\/]")
 for i in my_titles:
-    print(i['href'])
+    if r.search(i['href']) == None:
+        pass
+    else:
+        print(i['href'])
 # %%
