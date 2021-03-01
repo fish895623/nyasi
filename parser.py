@@ -15,6 +15,13 @@ my_titles = soup.select("body > div > div.table-responsive > table > tbody > tr 
 
 for i in my_titles:
     a = re.sub(r"[\d]", "", i.text)
-    print(a)
+    if a == "":
+        pass
+    elif a == "\n":
+        pass
+    elif a == "\n\n":
+        pass
+    else:
+        print(a)
 
 # %%
