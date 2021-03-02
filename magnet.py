@@ -1,7 +1,8 @@
 # %%
-from bs4 import BeautifulSoup
-import requests
 import re
+
+import requests
+from bs4 import BeautifulSoup
 
 # %%
 req = requests.get("https://nyaa.si")
